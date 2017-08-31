@@ -1,5 +1,8 @@
 #pragma once
-class Rocket
+#include "EventReader.h"
+#include "SFML\Graphics\Sprite.hpp"
+#include "SFML\System\Vector2.hpp"
+class Rocket : public EventReader
 {
 	/*
 	This is the logic and physics part of a rocket class.
@@ -33,11 +36,18 @@ public:
 	float getX();
 	float getY();
 	float getRot();
+
+	void notify(EventType e);
+	
 private:
 	float _X;
 	float _Y;
 	float _Rot;
-
+	//That darned math direction variable!!!!!!!
+	sf::Vector2f _V;
+	//Reference to my sprite ( still oddly called a shape ) caused by that darned V - would redisgn if not so lazy
+	sf::Sprite _Shape;
+	
 	
 	
 	

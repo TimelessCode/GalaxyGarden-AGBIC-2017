@@ -63,3 +63,26 @@ float Rocket::getRot()
 	return _Rot;
 							
 }
+
+void Rocket::notify(EventType e)
+{
+	switch (e)
+	{
+	case EventType::W_Pressed:
+		move(v.x / 10000, v.y / 10000);
+		break;
+
+	case EventType::A_Pressed:
+		rotate(-0.001f);
+		break;
+
+	case EventType::D_Pressed:
+		rotate(0.001f);
+		break;
+
+	
+
+	default:
+		break;
+	}
+}

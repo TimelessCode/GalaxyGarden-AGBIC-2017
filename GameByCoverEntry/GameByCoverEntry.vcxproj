@@ -19,10 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="EventReader.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Rocket.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="EventReader.h" />
     <ClInclude Include="Rocket.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
