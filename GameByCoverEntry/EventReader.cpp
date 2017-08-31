@@ -11,6 +11,6 @@ EventReader::~EventReader()
 {
 }
 
-void EventReader::notify()
+void EventReader::notify(EventType e)
 {
 }

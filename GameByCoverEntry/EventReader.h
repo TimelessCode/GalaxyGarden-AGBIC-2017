@@ -13,6 +13,6 @@ class EventReader
 public:
 	EventReader();
 	~EventReader();
-	void notify();
+	void notify(EventType e);
 };
 

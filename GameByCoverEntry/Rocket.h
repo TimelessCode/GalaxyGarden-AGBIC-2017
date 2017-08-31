@@ -24,7 +24,7 @@ public:
 	
 	float W;
 	float H;
-	Rocket(float w, float h);
+	Rocket(float w, float h,sf::Sprite sh);
 	~Rocket();
 	//Adds the x and y to our x and y
 	void move(float x , float y);

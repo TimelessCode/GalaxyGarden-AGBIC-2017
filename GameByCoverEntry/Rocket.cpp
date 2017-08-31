@@ -2,11 +2,13 @@
 
 
 
-Rocket::Rocket(float w, float h)
+Rocket::Rocket(float w, float h,sf::Sprite sh)
 {
 	//Set width and height of the rocket
 	W = w;
 	H = h;
+	//Shapes like tha most important thang
+	_Shape = sh;
 	//Set all values to zero, else they will default to some awful value
 	_X = 0;
 	_Y = 0;
@@ -35,6 +37,9 @@ void Rocket::rotate(float rot)
 
 void Rocket::update()
 {
+
+	_V = sf::Vector2f((float)std::cos((_Shape.getRotation() - 90) *3.141592653589793 / 180.0), (float)std::sin((_Shape.getRotation() - 90) *3.141592653589793 / 180.0));
+
 	_X += VelX;
 	_Y += VelY;
 	
@@ -69,7 +74,7 @@ void Rocket::notify(EventType e)
 	switch (e)
 	{
 	case EventType::W_Pressed:
-		move(v.x / 10000, v.y / 10000);
+		move(_V.x / 10000, _V.y / 10000);
 		break;
 
 	case EventType::A_Pressed:

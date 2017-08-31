@@ -24,12 +24,18 @@
     <ClCompile Include="EventReader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="EventLeader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Rocket.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="EventReader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EventLeader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
