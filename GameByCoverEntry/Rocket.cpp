@@ -54,14 +54,14 @@ void Rocket::update()
 		_Rot = 360;
 	}
 
-	if (VelRot > 1) {
+	/*if (VelRot > 1) {
 		VelRot = 1;
-	}
+	}*/
 
 	//Bring velocities closer to zero every frame ( friction )
-	VelRot > 0 ? VelRot -= 0.00001 : VelRot += 0.00001;
-	VelX > 0 ? VelX -= 0.00001 : VelX += 0.00001;
-	VelY > 0 ? VelY -= 0.00001 : VelY += 0.00001;
+	VelRot > 0 ? VelRot -= 0.00005 : VelRot += 0.00005;
+	VelX > 0 ? VelX -= 0.000015 : VelX += 0.000015;
+	VelY > 0 ? VelY -= 0.000015 : VelY += 0.000015;
 	/*
 
 	
