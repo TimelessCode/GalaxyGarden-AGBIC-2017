@@ -21,12 +21,14 @@
   <ItemGroup>
     <ClCompile Include="EventLeader.cpp" />
     <ClCompile Include="EventReader.cpp" />
+    <ClCompile Include="InputAnnouncer.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Rocket.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EventLeader.h" />
     <ClInclude Include="EventReader.h" />
+    <ClInclude Include="InputAnnouncer.h" />
     <ClInclude Include="Rocket.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

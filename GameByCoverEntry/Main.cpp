@@ -1,14 +1,17 @@
 #include <SFML/Graphics.hpp>
 #include "Rocket.h"
 #include "EventLeader.h"
+#include "InputAnnouncer.h"
 #include <iostream>
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(720, 680), "Garden Galaxy");
+	sf::RenderWindow window(sf::VideoMode(720, 680), "Garden Galaxy",sf::Style::Close);
 	
+	
+	InputAnnouncer iA;
 	sf::Texture texture;
 	if (!
-		texture.loadFromFile("Pineapple-still-messy.png")
+		texture.loadFromFile("Sword.png")
 	) {
 		std::cout << "Failed to load file";
 	}
@@ -40,21 +43,8 @@ int main()
 				window.close();
 		}
 
-		sf::Vector2f v = sf::Vector2f((float)std::cos((shape.getRotation() - 90) *3.141592653589793 / 180.0), (float)std::sin((shape.getRotation() - 90) *3.141592653589793 / 180.0));
-
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-			el.MassNotify(EventType::W_Pressed);
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-			r->move(0.0f, 0.001f);
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-			r->rotate(-0.001f);
-			
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-			r->rotate(0.001f);
-		}
+		//sf::Vector2f v = sf::Vector2f((float)std::cos((shape.getRotation() - 90) *3.141592653589793 / 180.0), (float)std::sin((shape.getRotation() - 90) *3.141592653589793 / 180.0));
+		iA.ListenForInput(el);
 
 		line.setRotation((std::atan2(r->getY(),r->getY())) * 180 / 3.14159265358979323);
 	
@@ -65,7 +55,7 @@ int main()
 		
 		
 		
-		window.clear();
+		window.clear(sf::Color(47, 18, 44));
 		window.draw(shape);
 		window.draw(line);
 		window.display();
