@@ -84,13 +84,15 @@ int main()
 			}
 			clock.restart();
 		}
-		test.setPosition(test.getPosition().x + 0.1, test.getPosition().y + 0.05);
+		test.setPosition(test.getPosition().x + 0.1, test.getPosition().y );
 		line.setRotation((std::atan2(r->getY(),r->getY())) * 180 / 3.14159265358979323);
 		
-		if (r->getX() > window.mapPixelToCoords(sf::Vector2i(680,0)).x) {
+		//Get the x coordinate of the sword, if it is past a certain border and still moving, scroll the camer
+		//NOTE - Due to coding neatness limits, nothing can be 100 percent still on the y axis in the game world
+		if (r->getX() > window.mapPixelToCoords(sf::Vector2i(680,0)).x && r->VelX != 0.0f) {
 
 			view.move(0.5f, 0);
-			std::cout << "Loadabullcrapmydude" << std::endl;
+			std::cout << r->VelX << std::endl;
 					   }
 
 

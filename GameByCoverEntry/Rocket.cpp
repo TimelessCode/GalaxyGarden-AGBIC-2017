@@ -42,8 +42,9 @@ void Rocket::update()
 
 	_V = sf::Vector2f((float)std::cos((getRot() - 90) *3.141592653589793 / 180.0), (float)std::sin((getRot() - 90) *3.141592653589793 / 180.0));
 
-	_X += VelX;
-	_Y += VelY;
+	//1000 is a magic number to slow down crap
+	_X += VelX / 10000;
+	_Y += VelY / 10000;
 	
 	_Rot += VelRot;
 	if (_Rot >= 360) {
@@ -60,8 +61,22 @@ void Rocket::update()
 
 	//Bring velocities closer to zero every frame ( friction )
 	VelRot > 0 ? VelRot -= 0.00005 : VelRot += 0.00005;
-	VelX > 0 ? VelX -= 0.000015 : VelX += 0.000015;
-	VelY > 0 ? VelY -= 0.000015 : VelY += 0.000015;
+
+	if (VelX > 0.0f) {
+		VelX -= 0.15f;
+	}
+	else if (VelX < 0.0f) {
+		VelX += 0.15f;
+	}
+
+	if (VelY > 0.0f) {
+		VelY -= 0.15f;
+	}
+	else if (VelY < 0.0f) {
+		VelY += 0.15f;
+	}
+
+
 	/*
 
 	
@@ -90,7 +105,7 @@ void Rocket::notify(EventType e)
 	switch (e)
 	{
 	case EventType::W_Pressed:
-		move(_V.x / 10000, _V.y / 10000);
+		move(_V.x / 1 , _V.y / 1);
 		break;
 
 	case EventType::A_Pressed:
