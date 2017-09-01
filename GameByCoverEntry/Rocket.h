@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include "EventReader.h"
 #include "SFML\Graphics\Sprite.hpp"
 #include "SFML\System\Vector2.hpp"

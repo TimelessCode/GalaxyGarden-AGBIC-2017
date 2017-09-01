@@ -11,10 +11,12 @@ EventLeader::~EventLeader()
 {
 }
 
-void EventLeader::MassNotify(EventType _e)
+void EventLeader::MassNotify(EventType e)
 {
-	for (int i = 0; i < _Readers.size-1; i++)
+	
+	for (int i = 0; i < _Readers.size(); i++)
 	{
-		_Readers[i].notify(_e);
+		//std::cout << "Massnotified biatch";
+		_Readers[i]->notify(e);
 	}
 }

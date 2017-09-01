@@ -13,4 +13,5 @@ EventReader::~EventReader()
 
 void EventReader::notify(EventType e)
 {
+	std::cout << "Well";
 }

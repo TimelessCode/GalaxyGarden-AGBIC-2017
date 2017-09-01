@@ -4,6 +4,8 @@
 
 Rocket::Rocket(float w, float h,sf::Sprite sh)
 {
+
+	_V = sf::Vector2f(0, 0);
 	//Set width and height of the rocket
 	W = w;
 	H = h;
@@ -38,19 +40,25 @@ void Rocket::rotate(float rot)
 void Rocket::update()
 {
 
-	_V = sf::Vector2f((float)std::cos((_Shape.getRotation() - 90) *3.141592653589793 / 180.0), (float)std::sin((_Shape.getRotation() - 90) *3.141592653589793 / 180.0));
+	_V = sf::Vector2f((float)std::cos((getRot() - 90) *3.141592653589793 / 180.0), (float)std::sin((getRot() - 90) *3.141592653589793 / 180.0));
 
 	_X += VelX;
 	_Y += VelY;
 	
 	_Rot += VelRot;
-	if (VelRot > 0) {
-		VelRot -= 0.00001;
+	if (_Rot >= 360) {
+		_Rot = 0;
 	}
 
-	if (VelRot < 0) {
-		VelRot += 0.00001;
+	if (_Rot < 0) {
+		_Rot = 360;
 	}
+
+	//Bring velocities closer to zero every frame ( friction )
+	VelRot > 0 ? VelRot -= 0.00001 : VelRot += 0.00001;
+	VelX > 0 ? VelX -= 0.00001 : VelX += 0.00001;
+	VelY > 0 ? VelY -= 0.00001 : VelY += 0.00001;
+
 }
 
 float Rocket::getX()
@@ -71,6 +79,7 @@ float Rocket::getRot()
 
 void Rocket::notify(EventType e)
 {
+	std::cout << _V.x;
 	switch (e)
 	{
 	case EventType::W_Pressed:

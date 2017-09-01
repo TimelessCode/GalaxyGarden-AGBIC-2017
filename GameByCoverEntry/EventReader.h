@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 
 
 enum EventType
@@ -13,6 +14,6 @@ class EventReader
 public:
 	EventReader();
 	~EventReader();
-	void notify(EventType e);
+	virtual void notify(EventType e);
 };
 
